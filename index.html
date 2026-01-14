@@ -3,103 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pistol Pete | Developer Portfolio</title>
+    <title>Pete Sikalis | Software Engineer & High-Performance Developer</title>
+    <!-- Google Search / SEO -->
+    <meta name="description" content="Portfolio of Pete Sikalis, a Software Developer with 5+ years of experience in Next.js, React, and TypeScript. Former professional hockey player turned high-performance engineer.">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass { backdrop-filter: blur(10px) brightness(1.1); background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .hover-effect:hover { transform: scale(1.05); }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#030712',
+                        slate: {
+                            850: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-    <!-- Header Section -->
-    <header class="py-6 px-8 bg-gray-800 shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-indigo-400">Pistol Pete</h1>
-            <nav class="space-x-6">
-                <a href="#about" class="text-gray-300 hover:text-indigo-400 transition">About</a>
-                <a href="#projects" class="text-gray-300 hover:text-indigo-400 transition">Projects</a>
-                <a href="#timeline" class="text-gray-300 hover:text-indigo-400 transition">Journey</a>
-                <a href="#contact" class="text-gray-300 hover:text-indigo-400 transition">Contact</a>
+<body class="bg-midnight text-gray-100 selection:bg-indigo-500/30">
+    <div class="hero-gradient"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-midnight/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight font-heading">
+                PETE <span class="text-indigo-500">SIKALIS</span>
+            </a>
+            <nav class="hidden md:flex space-x-10 text-sm font-medium">
+                <a href="#about" class="nav-link text-gray-400 hover:text-white">Expertise</a>
+                <a href="#projects" class="nav-link text-gray-400 hover:text-white">Highlight Reel</a>
+                <a href="#experience" class="nav-link text-gray-400 hover:text-white">Journey</a>
+                <a href="#contact" class="nav-link text-gray-400 hover:text-white">Contact</a>
             </nav>
+            <a href="mailto:psikalis16@gmail.com" class="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition-colors">
+                Hire Pete
+            </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative py-20 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl font-bold text-indigo-400">Innovative Solutions, Creative Coding</h2>
-            <p class="mt-4 text-lg text-gray-300">Hi, I’m Pete. Let’s build something amazing together.</p>
-            <a href="#projects" class="mt-8 inline-block bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg hover:bg-indigo-700 transition">Explore My Work</a>
-        </div>
-        <div class="absolute top-10 right-10 h-32 w-32 bg-indigo-600 rounded-full opacity-30 blur-2xl"></div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 px-6">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-indigo-400">About Me</h2>
-            <p class="mt-6 text-lg text-gray-300">From professional hockey to software development, I’ve honed discipline, teamwork, and problem-solving skills. I’m passionate about crafting intuitive user experiences with technologies like <strong>Next.js</strong>, <strong>React</strong>, and <strong>TailwindCSS</strong>.</p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 px-6 bg-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-indigo-400 text-center">Projects</h2>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Cards -->
-                <div class="glass p-6 rounded-lg hover-effect transition">
-                    <h3 class="text-2xl font-bold text-indigo-300">Project 1: Dispatch App</h3>
-                    <p class="mt-4 text-gray-300">Created a Next.js app that helps managers assign jobs to their lot techs</p>
-                </div>
-                <a href="https://thesedayswithdevon.com">
-                    <div class="glass p-6 rounded-lg hover-effect transition">
-                        <h3 class="text-2xl font-bold text-indigo-300">Project 2: Blog Designer</h3>
-                        <p class="mt-4 text-gray-300">Developed and manage a responsive Squarespace blog for consistent monthly updates.</p>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative min-h-[80vh] flex items-center px-6 overflow-hidden">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <div class="z-10">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                        <span>5+ Years Experience</span>
+                        <span class="w-1 h-1 rounded-full bg-indigo-500"></span>
+                        <span>Professional Athlete Mindset</span>
                     </div>
-                </a>
-                <div class="glass p-6 rounded-lg hover-effect transition">
-                    <h3 class="text-2xl font-bold text-indigo-300">Project 3: Dealership Website Badges</h3>
-                    <p class="mt-4 text-gray-300">Built badges that integrate with dealership websites to help them sell used cars</p>
+                    <h1 class="text-5xl md:text-7xl font-extrabold font-heading leading-tight mb-6">
+                        Athletic Discipline. <br>
+                        <span class="gradient-text">Engineering Precision.</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed">
+                        I translate complex business requirements into performant, maintainable software. Leveraging the grit of a 2x champion athlete to build scalable web architectures.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="px-8 py-4 rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/20">
+                            View My Work
+                        </a>
+                        <a href="#experience" class="px-8 py-4 rounded-xl border border-gray-700 bg-gray-800/50 text-white font-bold hover:bg-gray-700 transition-all">
+                            My Journey
+                        </a>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <!-- Placeholder for potential visual element / abstract art -->
+                    <div class="w-full aspect-square rounded-3xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 flex items-center justify-center relative group overflow-hidden">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="text-center p-8">
+                            <div class="text-8xl mb-4">🏒</div>
+                            <div class="text-2xl font-bold font-heading">High Performance</div>
+                            <p class="text-gray-400 text-sm">Winning Mindset in Agile Environments</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Timeline Section -->
-    <section id="timeline" class="py-16 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-indigo-400">My Journey</h2>
-            <div class="mt-12 space-y-10">
-                <div class="glass p-6 rounded-lg">
-                    <h3 class="text-lg font-semibold">Professional Hockey Player</h3>
-                    <p class="text-gray-300">2017-2021 | Back-to-back championships, using teamwork .</p>
-                </div>
-                <div class="glass p-6 rounded-lg">
-                    <h3 class="text-lg font-semibold">Software Developer</h3>
-                    <p class="text-gray-300">2021-Present | From DataOne to Dealer Specialties, delivering elegant technical solutions.</p>
+        <!-- About / Skills Section -->
+        <section id="about" class="py-24 px-6 bg-slate-950">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-3 gap-16">
+                    <div class="lg:col-span-1">
+                        <h2 class="text-sm font-bold text-indigo-500 uppercase tracking-widest mb-4">Scouting Report</h2>
+                        <h3 class="text-4xl font-bold font-heading mb-6">Built for Scale.</h3>
+                        <p class="text-gray-400 leading-relaxed mb-8">
+                            Specializing in the JavaScript/TypeScript ecosystem, I lead frontend architecture while maintaining a strong full-stack perspective across .NET and Node.js.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-gray-900 border border-gray-800">
+                                <span class="font-medium">Frontend Expertise</span>
+                                <span class="text-indigo-400 text-sm font-bold">100%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-gray-900 border border-gray-800">
+                                <span class="font-medium">Backend Architecture</span>
+                                <span class="text-indigo-400 text-sm font-bold">85%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-4 rounded-xl bg-gray-900 border border-gray-800">
+                                <span class="font-medium">Product Leadership</span>
+                                <span class="text-indigo-400 text-sm font-bold">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
+                        <div class="p-8 rounded-3xl bg-gray-900 border border-gray-800 card-hover">
+                            <h4 class="text-xl font-bold mb-4 font-heading text-indigo-100">Core Stack</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge">Next.js</span>
+                                <span class="badge">React</span>
+                                <span class="badge">TypeScript</span>
+                                <span class="badge">Tailwind</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">Express</span>
+                            </div>
+                        </div>
+                        <div class="p-8 rounded-3xl bg-gray-900 border border-gray-800 card-hover">
+                            <h4 class="text-xl font-bold mb-4 font-heading text-indigo-100">Enterprise Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge">C# / .NET 8</span>
+                                <span class="badge">Azure DevOps</span>
+                                <span class="badge">SQL Server</span>
+                                <span class="badge">Postman</span>
+                                <span class="badge">Agile/Scrum</span>
+                            </div>
+                        </div>
+                        <div class="p-8 rounded-3xl bg-transparent border-2 border-dashed border-gray-800 md:col-span-2">
+                            <p class="text-gray-500 italic text-center text-lg">
+                                "Translating complex business requirements into performant, maintainable software."
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 text-center bg-gray-900">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-indigo-400">Let’s Connect</h2>
-            <p class="mt-4 text-lg text-gray-300">I’m always excited to discuss new opportunities or projects. Reach out anytime!</p>
-            <div class="mt-8 space-x-6">
-                <a href="https://www.linkedin.com/in/peter-sikalis-pistolpete/" class="bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg hover:bg-indigo-700 transition">LinkedIn</a>
-                <a href="mailto:psikalis16@gmail.com" class="bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg hover:bg-indigo-700 transition">Email Me</a>
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 space-y-4">
+                    <div>
+                        <h2 class="text-sm font-bold text-indigo-500 uppercase tracking-widest mb-4">Highlight Reel</h2>
+                        <h3 class="text-4xl md:text-5xl font-bold font-heading">Recent Projects</h3>
+                    </div>
+                    <p class="text-gray-400 max-w-sm">
+                        A showcase of personal engineering feats and professional contributions.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project: Life Lens -->
+                    <div class="group relative p-8 rounded-3xl bg-slate-850 border border-gray-800 card-hover">
+                        <div class="mb-6 flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-600/20 border border-indigo-600/30 flex items-center justify-center text-2xl">📸</div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Web App</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 font-heading">LifeLens</h4>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            A sophisticated media management vault designed for privacy and speed. Built with modern web standards to provide a seamless photographic experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">Next.js</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">Vault Arch</span>
+                        </div>
+                        <a href="https://life-lens.vercel.app" class="inline-flex items-center text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+                            Explore Site <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Project: MiddleMate -->
+                    <div class="group relative p-8 rounded-3xl bg-slate-850 border border-gray-800 card-hover">
+                        <div class="mb-6 flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-xl bg-green-600/20 border border-green-600/30 flex items-center justify-center text-2xl">📍</div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Utility Tool</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 font-heading">MiddleMate</h4>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            Find the perfect midpoint. Calculates geo-equidistant points and discovers points of interest for group meetups.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">React</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">GeoAPI</span>
+                        </div>
+                        <a href="https://middle-mate.vercel.app" class="inline-flex items-center text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+                            Explore Site <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Project: Dealer Specialties -->
+                    <div class="group relative p-8 rounded-3xl bg-slate-850 border border-gray-800 card-hover">
+                        <div class="mb-6 flex justify-between items-start">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-600/30 flex items-center justify-center text-2xl">⚡</div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Enterprise</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 font-heading">Platform Modernization</h4>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            Led the technical transition of legacy systems into modern Node.js and Next.js applications, improving performance by 40%+.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">Migration</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">Arch</span>
+                        </div>
+                        <span class="text-xs text-gray-500">Professional Work @ Dealer Specialties</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-6 text-center">
-        <p class="text-gray-500">&copy; 2025 Pistol Pete. All rights reserved.</p>
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 px-6 bg-slate-950">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-sm font-bold text-indigo-500 uppercase tracking-widest mb-4">The Journey</h2>
+                    <h3 class="text-4xl font-bold font-heading">Career Timeline</h3>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- Dealer Specialties -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Experienced Software Developer</h4>
+                                <p class="text-indigo-400 font-medium">Dealer Specialties</p>
+                            </div>
+                            <p class="text-gray-500 text-sm mt-1">2021 — Present</p>
+                        </div>
+                        <ul class="text-gray-400 space-y-2 text-sm max-w-2xl leading-relaxed">
+                            <li>• Core frontend engineer directing the modernization of globally distributed customer-facing applications.</li>
+                            <li>• Architected a job scheduling platform from zero using Next.js/TypeScript, aligning technical debt reduction with business goals.</li>
+                            <li>• Expanded to full-stack by building .NET 8 services and migrating legacy PHP/MySQL APIs.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Squarespace -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Squarespace & Wix Developer</h4>
+                                <p class="text-indigo-400 font-medium">C. Devon's Homes</p>
+                            </div>
+                            <p class="text-gray-500 text-sm mt-1">2021 — Present</p>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Maintaining complex real estate portals and blog ecosystems with a focus on high-fidelity design and consistent performance.
+                        </p>
+                    </div>
+
+                    <!-- Hockey -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Professional Hockey Player</h4>
+                                <p class="text-indigo-400 font-medium">Huntsville Havoc (SPHL)</p>
+                            </div>
+                            <p class="text-gray-500 text-sm mt-1">2017 — 2021</p>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Back-to-back Championships (2018, 2019). Honed extreme discipline, peak performance under pressure, and elite teamwork skills now applied to software engineering.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 relative overflow-hidden">
+            <div class="hero-gradient" style="top: 50%; opacity: 0.1;"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h2 class="text-5xl md:text-6xl font-extrabold font-heading mb-8">Ready to <span class="gradient-text">win?</span></h2>
+                <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Whether it's a new product launch or scaling an existing platform, I bring the grit and expertise to get it done.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="mailto:psikalis16@gmail.com" class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-indigo-600 text-white font-bold text-lg hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-600/30">
+                        Send an Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/peter-sikalis-pistolpete/" class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gray-900 border border-gray-800 text-white font-bold text-lg hover:bg-gray-800 transition-all">
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-6 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>© 2025 Pete Sikalis. Built with Precision.</p>
+            <p>Based in Watertown, MA</p>
+        </div>
     </footer>
+
+    <!-- Simple Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
