@@ -6,8 +6,8 @@
   --bg-secondary: #f8fafc; /* Slate 50 */
   --bg-tertiary: #f1f5f9; /* Slate 100 */
 
-  --accent-primary: #dc2626; /* Red 600 - Slightly deeper for text contrast */
-  --accent-secondary: #d97706; /* Amber 600 - Deeper Gold */
+  --accent-primary: #dc2626; /* Red 600 */
+  --accent-secondary: #d97706; /* Amber 600 */
   
   --text-primary: #0f172a; /* Slate 900 */
   --text-secondary: #475569; /* Slate 600 */
@@ -29,7 +29,7 @@ h1, h2, h3, h4, .font-heading {
   font-family: 'Outfit', sans-serif;
 }
 
-/* Gradients - Subtle for Light Mode */
+/* Gradients */
 .gradient-text {
   background: linear-gradient(135deg, #dc2626 0%, #d97706 100%);
   -webkit-background-clip: text;
@@ -37,7 +37,7 @@ h1, h2, h3, h4, .font-heading {
   background-clip: text;
 }
 
-/* Glassmorphism - Light */
+/* Glassmorphism */
 .bg-glass {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
@@ -45,7 +45,7 @@ h1, h2, h3, h4, .font-heading {
   border-bottom: 1px solid var(--border-color);
 }
 
-/* Cards - Light */
+/* Cards */
 .card-base {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
@@ -59,7 +59,7 @@ h1, h2, h3, h4, .font-heading {
   box-shadow: var(--card-shadow-hover);
 }
 
-/* Navigation Links */
+/* Styles for Navigation */
 .nav-link {
   position: relative;
   color: var(--text-secondary);
@@ -100,9 +100,9 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .badge-accent {
-    background: #fef2f2; /* Red 50 */
+    background: #fef2f2;
     color: var(--accent-primary);
-    border-color: #fecaca; /* Red 200 */
+    border-color: #fecaca;
 }
 
 /* Timeline */
@@ -136,6 +136,33 @@ h1, h2, h3, h4, .font-heading {
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 
+/* 3D Carousel Effects */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-0 {
+    transform: rotateY(0deg);
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+.rotate-y-negative-180 {
+    transform: rotateY(-180deg);
+}
+
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -144,7 +171,7 @@ h1, h2, h3, h4, .font-heading {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1; /* Slate 300 */
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {

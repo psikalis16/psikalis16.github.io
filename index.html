@@ -86,20 +86,35 @@
                     </div>
                 </div>
 
-                <!-- Visual (Right) -->
+                <!-- Visual (Right) - Carousel -->
                 <div class="hidden lg:block lg:col-span-5 relative animate-fade-in delay-200">
-                     <!-- 
-                        USER: REPLACE THIS IMAGE SOURCE WITH YOUR PHOTO 
-                    -->
-                    <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100">
-                         <img 
-                            src="https://placehold.co/600x800/f1f5f9/1e293b?text=Pete+Sikalis"   
-                            alt="Pete Sikalis" 
-                            class="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
-                        >
+                     <!-- Carousel Container -->
+                    <div class="relative w-full aspect-[4/5] rounded-2xl shadow-2xl border border-slate-100 bg-slate-100 group perspective-1000">
+                        
+                        <!-- Images Track -->
+                        <div id="carousel-track" class="w-full h-full relative preserve-3d transition-transform duration-700">
+                            <!-- JS will populate this -->
+                        </div>
+
+                        <!-- Controls -->
+                        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur text-slate-900 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white shadow-lg z-20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur text-slate-900 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white shadow-lg z-20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+
+                        <!-- Dots -->
+                        <div id="carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+                            <!-- JS will populate this -->
+                        </div>
+
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-900/10 to-transparent pointer-events-none z-10 rounded-2xl"></div>
                     </div>
+
                     <!-- Decorative Element -->
-                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white rounded-xl shadow-lg flex items-center justify-center p-4 border border-slate-50">
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white rounded-xl shadow-lg flex items-center justify-center p-4 border border-slate-50 z-30">
                         <div class="text-center">
                             <span class="block text-2xl font-bold text-slate-900">2x</span>
                             <span class="text-[10px] uppercase font-bold text-slate-400">Champion</span>
@@ -108,6 +123,120 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            // Carousel Logic
+            const images = [
+                'images/professional_headhsot.jpg',
+                'images/IMG_3507.JPG',
+                'images/IMG_3535.JPG',
+                'images/IMG_3588.JPG',
+                'images/IMG_4226.JPG',
+                'images/IMG_4265.JPG',
+                'images/IMG_4475.JPG', // Updated to JPG (Converted via script)
+                'images/IMG_4497.JPG'
+            ];
+            
+            let currentIndex = 0;
+            const track = document.getElementById('carousel-track');
+            const dotsContainer = document.getElementById('carousel-dots');
+            let interval;
+            let isTransitioning = false;
+
+            function initCarousel() {
+                // Create Images
+                images.forEach((src, index) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `Pete Sikalis Photo ${index + 1}`;
+                    // All images absolute, backface hidden. Start with index 0 visible.
+                    img.className = `absolute inset-0 w-full h-full object-cover backface-hidden transition-transform duration-700 ease-in-out ${index === 0 ? 'rotate-y-0 z-10' : 'rotate-y-180 z-0'}`;
+                    img.id = `slide-${index}`;
+                    track.appendChild(img);
+
+                    // Create Dot
+                    const dot = document.createElement('button');
+                    dot.className = `w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/80'}`;
+                    dot.onclick = () => { if(!isTransitioning && index !== currentIndex) goToSlide(index); };
+                    dotsContainer.appendChild(dot);
+                });
+
+                startInterval();
+            }
+
+            function updateCarousel(direction = 'next') {
+                isTransitioning = true;
+                
+                // We only need to animate the Current and the Next/Prev slide
+                // Simplified 3D Flip: The 'active' card flips out, the 'new' card flips in.
+                
+                // Wait for transition to end before allowing next click
+                setTimeout(() => { isTransitioning = false; }, 700);
+
+                images.forEach((_, index) => {
+                    const slide = document.getElementById(`slide-${index}`);
+                    
+                    // Reset all z-indexes
+                    slide.style.zIndex = '0';
+
+                    if (index === currentIndex) {
+                        // This is the one we are showing
+                        slide.className = 'absolute inset-0 w-full h-full object-cover backface-hidden transition-transform duration-700 ease-in-out rotate-y-0';
+                        slide.style.zIndex = '20';
+                    } else {
+                        // Others should be flipped back
+                        slide.className = 'absolute inset-0 w-full h-full object-cover backface-hidden transition-transform duration-700 ease-in-out rotate-y-180';
+                    }
+                });
+
+                // Update Dots
+                Array.from(dotsContainer.children).forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.className = 'w-4 h-2 rounded-full bg-white transition-all shadow-sm';
+                    } else {
+                        dot.className = 'w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all shadow-sm';
+                    }
+                });
+            }
+
+            function nextSlide() {
+                if (isTransitioning) return;
+                
+                // For a 3D flip effect, we might want to set initial states differently
+                // But simplified: Just changing the rotate-y class works if the new one is 'behind' the old one?
+                // Actually, for a true flip, we can just swap them.
+                
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+                resetInterval();
+            }
+
+            function prevSlide() {
+                if (isTransitioning) return;
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+                resetInterval();
+            }
+
+            function goToSlide(index) {
+                if (isTransitioning) return;
+                currentIndex = index;
+                updateCarousel();
+                resetInterval();
+            }
+
+            function startInterval() {
+                interval = setInterval(nextSlide, 5000); 
+            }
+
+            function resetInterval() {
+                clearInterval(interval);
+                startInterval();
+            }
+
+            // Init
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        </script>
 
         <!-- Technical Expertise Section -->
         <section id="expertise" class="py-24 px-6 bg-slate-50">
